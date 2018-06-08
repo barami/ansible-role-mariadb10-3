@@ -1,0 +1,11 @@
+---
+- name: Add apt key for MariaDB on debian from keyserver
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 0xF1656F24C74CD1D8
+
+# Add specified repository into sources list.
+- name: Add apt repository for MariaDB on debian
+  apt_repository:
+    repo: deb [arch=amd64,i386,ppc64el] https://ftp.harukasan.org/mariadb/repo/10.3/debian stretch main
+    state: present
